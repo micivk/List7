@@ -5,13 +5,30 @@ public class list7 {
     public static ArrayList<String> createArrayOfNames() {
 
         ArrayList<String> names = new ArrayList<>();
+
         for (int i = 0; i < 5; i++) {
-            System.out.println("Enter the name of your " + (i + 1) + "th person: ");
+            System.out.println("Enter the name of " + (i + 1) + "th person: ");
             String name = scanner.nextLine();
             names.add(name);
         }
         return names;
     }
+
+    public static ArrayList<String> createArrayOfWords() {
+
+        ArrayList<String> words = new ArrayList<>();
+        System.out.println("Write how many words you want to create: ");
+        int number_of_words = scanner.nextInt();
+        scanner.nextLine();
+
+        for (int i = 0; i < number_of_words; i++) {
+            System.out.println("Enter the " + (i + 1) + "th word: ");
+            String word = scanner.nextLine();
+            words.add(word);
+        }
+        return words;
+    }
+
 
     public static ArrayList<Integer> createIntegerArray() {
         Random rand = new Random();
@@ -26,13 +43,11 @@ public class list7 {
     }
 
 
-    public static void printArrayOfNames(ArrayList<String> names) {
+    public static void printArrayOfWords(ArrayList<String> words) {
 
-        System.out.println("Names: ");
-
-        String names2 = names.toString();
-        for (String name : names2.split(" ")) {
-            System.out.println(name);
+        String words2 = words.toString();
+        for (String word : words2.split(" ")) {
+            System.out.println(word);
         }
 
     }
@@ -83,11 +98,24 @@ public class list7 {
     }
 
 
+    public static String buildSentence(ArrayList<String> list){
+        String sentence = "";
+
+        for (String word: list) {
+            sentence += word + " ";
+        }
+        return sentence.trim();
+    }
+
+
+
+
     public static void main(String[] args) {
 
 
         ArrayList<String> names = createArrayOfNames();
-        printArrayOfNames(names);
+        System.out.println("Names: ");
+        printArrayOfWords(names);
         removeOneName(names);
 
 
@@ -95,6 +123,18 @@ public class list7 {
         printArrayOfIntegers(integers);
         revereseElements(integers);
         printArrayOfIntegers(integers);
+
+
+        ArrayList<String> words = createArrayOfWords();
+        System.out.println("Words: ");
+        printArrayOfWords(words);
+        String sentence = buildSentence(words);
+        System.out.println(sentence);
+
+
+
+
+
 
 
 
