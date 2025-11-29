@@ -39,8 +39,16 @@ public class list7 {
             integers.add(rand.nextInt(10) + 1);
         }
         return integers;
-
     }
+
+
+    public static void fillArray(List<Integer> array, int number) {
+        for (int i = 0; i < number; i++) {
+            array.add(i);
+        }
+    }
+
+
 
 
     public static void printArrayOfWords(ArrayList<String> words) {
@@ -108,6 +116,22 @@ public class list7 {
     }
 
 
+    public static long measureTime(List<Integer> array, int accessCount) {
+
+        Random rand = new Random();
+        int size = array.size();
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i < accessCount; i++) {
+            int randomIndex = rand.nextInt(size);
+            array.get(randomIndex);
+        }
+
+        return System.currentTimeMillis() - startTime;
+
+    }
+
+
 
 
     public static void main(String[] args) {
@@ -132,7 +156,18 @@ public class list7 {
         System.out.println(sentence);
 
 
+        int element = 1000000;
+        int access = 10000;
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        LinkedList<Integer> linkedList = new LinkedList<>();
 
+        fillArray(arrayList, element);
+        fillArray(linkedList, element);
+
+        long ArrayListTime = measureTime(arrayList, access);
+        long LinkedListTime = measureTime(linkedList, access);
+        System.out.println("ArrayList time: " + ArrayListTime + "ms");
+        System.out.println("LinkedList time: " + LinkedListTime + "ms");
 
 
 
