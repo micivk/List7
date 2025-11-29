@@ -32,7 +32,7 @@ public class list7 {
 
     public static ArrayList<Integer> createIntegerArray() {
         Random rand = new Random();
-        System.out.println("Write numbers of random numbers");
+        System.out.println("Write number of random numbers");
         int numbers = scanner.nextInt();
         ArrayList<Integer> integers = new ArrayList<>();
         for (int i = 0; i < numbers; i++) {
@@ -159,6 +159,23 @@ public class list7 {
     }
 
 
+    public static int countVowels(String input) {
+
+        int count = 0;
+
+        String vowels  = "aeiouAEIOU";
+
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if (vowels.indexOf(c) != -1) {
+                count++;
+            }
+
+        }
+        return count;
+    }
+
+
 
 
     public static void main(String[] args) {
@@ -243,6 +260,24 @@ public class list7 {
         long LinkedListDeleteTime = measureDeleteTime(linkedList4, delete);
         System.out.println("ArrayList delete time: " + ArrayListDeleteTime + "ms");
         System.out.println("LinkedList delete time: " + LinkedListDeleteTime + "ms");
+
+
+        // task4
+        // ArrayList uses a standard array. It calculates the memory address instantly using the index.
+        // LinkedList consists of scattered nodes. To find an element, it must traverse the list node by node from the beginning.
+
+        // task5/task7
+        // ArrayList is slow because inserting or removing at index 0 requires shifting all subsequent elements in memory to fill the gap or make space.
+        // LinkedList is fast because it only needs to update the pointers of the first node. No other elements need to be moved.
+
+        // task6
+        // ArrayList is usually faster here because modern CPUs are very efficient at copying/shifting blocks of memory.
+        // LinkedList loses a lot of time "walking" to the specific index before it can insert the node.
+
+
+        String input = "Chrząszcz brzmi w trzcinie w Szczebrzeszynie";
+        int amount = countVowels(input);
+        System.out.println("Amount of Vowels: " + amount);
 
 
 
