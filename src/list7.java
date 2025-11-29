@@ -138,6 +138,16 @@ public class list7 {
         }
         return System.currentTimeMillis() - startTime;
     }
+    public static long measureRandomInsertTime(List<Integer> array, int insertCount) {
+
+        Random rand = new Random();
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < insertCount; i++) {
+            int size = array.size();
+            array.add(rand.nextInt(size),i);
+        }
+        return System.currentTimeMillis() - startTime;
+    }
 
 
 
@@ -178,6 +188,9 @@ public class list7 {
         System.out.println("LinkedList time: " + LinkedListTime + "ms");
 
 
+
+
+
         int element2 = 1000000;
         int insert = 10000;
         ArrayList<Integer> arrayList2 = new ArrayList<>();
@@ -190,6 +203,27 @@ public class list7 {
         long LinkedListInsertTime = measureInsertTime(linkedList, insert);
         System.out.println("ArrayList insert time: " + ArrayListInsertTime + "ms");
         System.out.println("LinkedList insert time: " + LinkedListInsertTime + "ms");
+
+
+        int element3 = 1000000;
+        int insert2 = 10000;
+        ArrayList<Integer> arrayList3 = new ArrayList<>();
+        LinkedList<Integer> linkedList3 = new LinkedList<>();
+
+        fillArray(arrayList2, element3);
+        fillArray(linkedList2, element3);
+
+        long ArrayListRandomInsertTime = measureRandomInsertTime(arrayList, insert);
+        long LinkedListRandomInsertTime = measureRandomInsertTime(linkedList, insert);
+        System.out.println("ArrayList random insert time: " + ArrayListRandomInsertTime + "ms");
+        System.out.println("LinkedList random insert time: " + LinkedListRandomInsertTime + "ms");
+
+
+
+
+
+
+
 
 
 
