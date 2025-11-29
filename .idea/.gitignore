@@ -6,13 +6,10 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-
-*.class
-/out/
-
 .idea/
+/out/
+*.class
 *.iml
 *.iws
-
 .DS_Store
 Thumbs.db
