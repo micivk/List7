@@ -84,7 +84,7 @@ public class list7 {
         System.out.println("List is now empty.");
     }
 
-    public static void revereseElements(ArrayList<Integer> numbers) {
+    public static void reverseElements(ArrayList<Integer> numbers) {
 
         System.out.println("Elements reversed... ");
 
@@ -231,7 +231,7 @@ public class list7 {
         ArrayList<Integer> integers = createIntegerArray();
         System.out.println("Numbers: ");
         printArrayOfIntegers(integers);
-        revereseElements(integers);
+        reverseElements(integers);
         System.out.println("Numbers: ");
         printArrayOfIntegers(integers);
 
