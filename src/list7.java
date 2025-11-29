@@ -190,6 +190,33 @@ public class list7 {
     }
 
 
+    public static int findSecondLargest(ArrayList<Integer> numbers) {
+
+        if (numbers == null || numbers.size() < 2) {
+            System.out.println("Array of integers is too short");
+            return -1;
+        }
+
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int num : numbers) {
+            if (num > largest) {
+                secondLargest = largest;
+                largest = num;
+            }
+            else if (num > secondLargest && num != largest) {
+                secondLargest = num;
+            }
+        }
+        return secondLargest;
+    }
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
@@ -313,6 +340,23 @@ public class list7 {
 
         System.out.println("Prime numbers found: ");
         printArrayOfIntegers(onlyPrime);
+
+
+
+
+        ArrayList<Integer> numbers5 = new ArrayList<>();
+        numbers5.addAll(Arrays.asList(102, 552, 2044, 20123, 443443, 82311));
+        System.out.println("Numbers: ");
+        printArrayOfIntegers(numbers5);
+        int result = findSecondLargest(numbers5);
+        System.out.println("Second largest number: " + result);
+
+
+
+
+
+
+
     }
 
     }
