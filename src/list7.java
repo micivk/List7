@@ -149,6 +149,15 @@ public class list7 {
         return System.currentTimeMillis() - startTime;
     }
 
+    public static long measureDeleteTime(List<Integer> array, int deleteCount) {
+
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < deleteCount; i++) {
+            array.remove(0);
+        }
+        return System.currentTimeMillis() - startTime;
+    }
+
 
 
 
@@ -199,8 +208,8 @@ public class list7 {
         fillArray(arrayList2, element2);
         fillArray(linkedList2, element2);
 
-        long ArrayListInsertTime = measureInsertTime(arrayList, insert);
-        long LinkedListInsertTime = measureInsertTime(linkedList, insert);
+        long ArrayListInsertTime = measureInsertTime(arrayList2, insert);
+        long LinkedListInsertTime = measureInsertTime(linkedList2, insert);
         System.out.println("ArrayList insert time: " + ArrayListInsertTime + "ms");
         System.out.println("LinkedList insert time: " + LinkedListInsertTime + "ms");
 
@@ -210,17 +219,30 @@ public class list7 {
         ArrayList<Integer> arrayList3 = new ArrayList<>();
         LinkedList<Integer> linkedList3 = new LinkedList<>();
 
-        fillArray(arrayList2, element3);
-        fillArray(linkedList2, element3);
+        fillArray(arrayList3, element3);
+        fillArray(linkedList3, element3);
 
-        long ArrayListRandomInsertTime = measureRandomInsertTime(arrayList, insert);
-        long LinkedListRandomInsertTime = measureRandomInsertTime(linkedList, insert);
+        long ArrayListRandomInsertTime = measureRandomInsertTime(arrayList3, insert2);
+        long LinkedListRandomInsertTime = measureRandomInsertTime(linkedList3, insert2);
         System.out.println("ArrayList random insert time: " + ArrayListRandomInsertTime + "ms");
         System.out.println("LinkedList random insert time: " + LinkedListRandomInsertTime + "ms");
 
 
 
 
+
+        int element4 = 1000000;
+        int delete = 10000;
+        ArrayList<Integer> arrayList4 = new ArrayList<>();
+        LinkedList<Integer> linkedList4 = new LinkedList<>();
+
+        fillArray(arrayList4, element4);
+        fillArray(linkedList4, element4);
+
+        long ArrayListDeleteTime = measureDeleteTime(arrayList4, delete);
+        long LinkedListDeleteTime = measureDeleteTime(linkedList4, delete);
+        System.out.println("ArrayList delete time: " + ArrayListDeleteTime + "ms");
+        System.out.println("LinkedList delete time: " + LinkedListDeleteTime + "ms");
 
 
 
