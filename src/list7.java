@@ -131,6 +131,14 @@ public class list7 {
 
     }
 
+    public static long measureInsertTime(List<Integer> array, int insertCount) {
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < insertCount; i++) {
+            array.add(0,i);
+        }
+        return System.currentTimeMillis() - startTime;
+    }
+
 
 
 
@@ -170,6 +178,18 @@ public class list7 {
         System.out.println("LinkedList time: " + LinkedListTime + "ms");
 
 
+        int element2 = 1000000;
+        int insert = 10000;
+        ArrayList<Integer> arrayList2 = new ArrayList<>();
+        LinkedList<Integer> linkedList2 = new LinkedList<>();
+
+        fillArray(arrayList2, element2);
+        fillArray(linkedList2, element2);
+
+        long ArrayListInsertTime = measureInsertTime(arrayList, insert);
+        long LinkedListInsertTime = measureInsertTime(linkedList, insert);
+        System.out.println("ArrayList insert time: " + ArrayListInsertTime + "ms");
+        System.out.println("LinkedList insert time: " + LinkedListInsertTime + "ms");
 
 
 
