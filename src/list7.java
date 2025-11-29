@@ -32,7 +32,7 @@ public class list7 {
 
     public static ArrayList<Integer> createIntegerArray() {
         Random rand = new Random();
-        System.out.println("Write number of random numbers");
+        System.out.println("Write the number of random numbers");
         int numbers = scanner.nextInt();
         ArrayList<Integer> integers = new ArrayList<>();
         for (int i = 0; i < numbers; i++) {
@@ -61,12 +61,12 @@ public class list7 {
     }
 
     public static void printArrayOfIntegers(ArrayList<Integer> numbers) {
-        System.out.println("Numbers: ");
         for (Integer number : numbers) {
             System.out.println(number);
         }
 
     }
+
 
 
     public static void removeOneName(ArrayList<String> names) {
@@ -177,6 +177,20 @@ public class list7 {
 
 
 
+    public static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i  <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
 
     public static void main(String[] args) {
 
@@ -188,8 +202,10 @@ public class list7 {
 
 
         ArrayList<Integer> integers = createIntegerArray();
+        System.out.println("Numbers: ");
         printArrayOfIntegers(integers);
         revereseElements(integers);
+        System.out.println("Numbers: ");
         printArrayOfIntegers(integers);
 
 
@@ -281,9 +297,24 @@ public class list7 {
 
 
 
+        ArrayList<Integer> arrayList7 = new ArrayList<>();
+        arrayList7.addAll(Arrays.asList(1,2,3,4,5,6,7,10,12,13,14,20,23,45,50,1623,23414));
+        System.out.println("Numbers: ");
+        printArrayOfIntegers(arrayList7);
+
+        ArrayList<Integer> onlyPrime = new ArrayList<>();
 
 
+        for (Integer num : arrayList7) {
+            if (isPrime(num)) {
+                onlyPrime.add(num);
+            }
+        }
+
+        System.out.println("Prime numbers found: ");
+        printArrayOfIntegers(onlyPrime);
+    }
 
     }
-}
+
 
